@@ -21,10 +21,7 @@ Set-ItemProperty -Path "HKCU:\Control Panel\Desktop" -Name "TranscodedImageCache
 Set-ItemProperty -Path "HKCU:\Control Panel\Desktop" -Name "WallpaperStyle" -Value "10"
 Set-ItemProperty -Path "HKCU:\Control Panel\Desktop" -Name "TileWallpaper" -Value "0"
 
-# Windows dazu zwingen, die Registry neu zu laden
 Write-Output "Aktualisiere Registry..."
-Start-Sleep -Seconds 1
-
 # SystemParametersInfo aufrufen, um die Änderung zu übernehmen
 Write-Output "Übernehme Änderungen mit SystemParametersInfo..."
 if (-not ([System.Management.Automation.PSTypeName]'Wallpaper').Type) {
@@ -42,7 +39,6 @@ if (-not ([System.Management.Automation.PSTypeName]'Wallpaper').Type) {
 
 # Desktop zusätzlich refreshen (Alternative Methode)
 Write-Output "Erzwinge Desktop-Aktualisierung..."
-Start-Sleep -Seconds 2  # Warten, um sicherzustellen, dass Explorer gestartet ist
 $signature = @"
 using System;
 using System.Runtime.InteropServices;
