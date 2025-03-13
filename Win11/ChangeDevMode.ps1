@@ -1,4 +1,4 @@
-# Prüfen, ob das Skript mit Admin-Rechten läuft
+# Pruefen, ob das Skript mit Admin-Rechten läuft
 $adminCheck = [Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()
 $adminRole = [Security.Principal.WindowsBuiltInRole]::Administrator
 
@@ -13,7 +13,7 @@ $registryPath = "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Appx"
 $registryName = "AllowDevelopmentWithoutDevLicense"
 $registryValue = 1
 
-# Überprüfen, ob der Schlüssel existiert, andernfalls erstellen
+# Ueberpruefen, ob der Schluessel existiert, andernfalls erstellen
 if (-not (Test-Path $registryPath)) {
     New-Item -Path $registryPath -Force | Out-Null
 }
